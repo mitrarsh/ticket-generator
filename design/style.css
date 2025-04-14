@@ -1,7 +1,7 @@
 body{background-image: 
         /* url(/js-html-interactive/ticket-generator/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg), */
         /* url(/js-html-interactive/ticket-generator/assets/images/pattern-squiggly-line-top.svg), */
-        url(background-mobile.png);
+        url(/js-html-interactive/ticket-generator/assets/images/background-mobile.png);
         background-size: cover;      /* Makes sure it fills the box */
         background-position:center; /* Centers the image */
         background-repeat: no-repeat;
@@ -19,7 +19,7 @@ body{background-image:
 @media screen and (min-width: 1400px) {
     body{
         background-image: 
-        url(background-desktop.png);
+        url(/js-html-interactive/ticket-generator/assets/images/background-desktop.png);
         background-size: cover;      /* Makes sure it fills the box */
         background-position:center; /* Centers the image */
         background-repeat: no-repeat;
@@ -86,7 +86,6 @@ h1{font-size: 3rem;}
     padding: 0.75rem 0.5rem;
     font-size: 1rem;
     width: 95%;
-    color: aliceblue;
 }
 #fileinput{display: none;}
 .fileinputbox{
@@ -97,7 +96,6 @@ h1{font-size: 3rem;}
     height: fit-content;
     justify-self: center;
     padding-top: 1rem ;
-    cursor: pointer
 }
 #inputicon{
     border: hsl(245, 19%, 35%) 2px solid;
@@ -174,33 +172,31 @@ h1{font-size: 3rem;}
         text-orientation: mixed;
         font-size: 0.75rem;
         color: #999;
-        justify-self: center;
+        align-self: flex-end;
         padding-right: 0.5rem;}
 
 /*ticket*/
     .ticket{
-        padding: 1rem;
+        padding: 2rem;
         /* background-image: url(/js-html-interactive/ticket-generator/assets/images/pattern-ticket.svg);
         background-size: 90vw;      /* Makes sure it fills the box */
         /* background-position: center; 
         background-repeat: no-repeat; */ 
         
         height: fit-content;
-        justify-content: center;
-        justify-self: center;
+        justify-content: start;
         position: relative;
         height: fit-content;
         box-sizing: border-box;
         align-self: center;
-        max-width: 334px;
-
+        height: auto;
         }
     
     .ticket--background{
             position: absolute;
             z-index: -1;
             width: 100%;
-            height: 10rem;
+            height: auto;
             top: 0;
             left: 0;
         }
@@ -210,46 +206,32 @@ h1{font-size: 3rem;}
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
+        justify-self: center;
     }
 
-
+    .block{
+        justify-content: center;
+        width: 100%;
+        }
 
     .ticket-content {
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        max-width: 80%;
+        align-content: space-between;
         }
 
     @media screen and (min-width: 451px) {
         .ticket--background{
             position: absolute;
             z-index: -1;
-            height: contain;
+            width: 100%;
+            left:1rem;
             justify-self: center;
             }
         .ticket{justify-content: space-around;
-        width: 100rem;
+        width: 50vw;
         justify-self: center;}
         .ticket-content{flex-grow: 0.5;}
-        .ticket-container{width: 100%;}
         }
-
-        #fullname, #email {
-            background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text; 
-            text-fill-color: transparent;
-          }
-
-          #ticket-page {
-            display: none;
-          }
-
-          input.error{border: red solid 2px;}
-
-          .error-content{display: flex; flex-direction: row;}
-        .error img{display: inline; width: 0.75rem;margin-right: 0.5rem;}
-        .error p{font-size: 0.65rem; color:red}

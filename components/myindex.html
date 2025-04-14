@@ -6,7 +6,11 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
   <title>
 
   </title>
@@ -15,13 +19,105 @@
   </style>
 </head>
 <body>
-<div class="logo"><img src="/js-html-interactive/ticket-generator/assets/images/logo-full.svg" alt="logo"></div>
-  <!-- Form starts -->
 
+<img class="linetop" src="pattern-squiggly-line-top.svg" alt="">
+<img class="linebuttomphone" src="pattern-squiggly-line-bottom-mobile-tablet.svg" alt="">
+<img class="linebuttompc" src="pattern-squiggly-line-bottom-desktop.svg" alt="">
+
+  <!-- Form starts -->
+  <div id="form-page">
+    <div class="logo"><img src="logo-full.svg" alt="logo"></div>
+    <div class="heading">
+      <h1>  Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p>  Secure your spot at next year's biggest coding conference.</p>
+    </div>
+    <div class="inputEl">
+      <p class="label">Upload Avatar</p>
+      <div class="fileinputbox">
+        <div id="inputicon">
+          <img src="icon-upload.svg" alt="">
+        </div>
+        <input type="file" id="fileinput">
+        <p>Drag and drop or click to upload</p>
+      </div>
+      <div class="uploadnote">
+        <img src="icon-info.svg" alt="">
+        <p>Upload your photo (JPG or PNG, max size: 500KB)</p></div>
+      <div class="error file-error">
+        <div class="error-content">
+          <img src="icon-info.svg" alt="">
+          <p>File too large. please upload a photo under 500KB</p></div>
+      </div>
+    </div>
+    <div class="inputEl">
+      <p class="label">Full Name</p>
+      <div class="inputbox">
+        <input type="text" class="input">
+      </div>
+    </div>
+    <div class="inputEl">
+      <p class="label">Email Address</p>
+      <div class="inputbox">
+        <input type="email" class="input" placeholder="example@email.com">
+      </div>
+      <div class="error email-error">
+        <div class="error-content">
+          <img src="icon-info.svg" alt="">
+          <p>Please enter a valid email address.</p></div>
+      </div>
+    </div>
+    <div class="inputEl">
+      <p class="label">Github Username</p>
+      <div class="inputbox">
+        <input type="text" class="input" placeholder="yourusername">
+      </div>
+    </div>
+    
+    <div class="button">
+      <button>Genarate My Ticket</button>
+    </div>
+     
+    <div class="form-error error">
+      <div class="form-error" id="formError">
+        <p>Please complete all fields before generating your ticket.</p>
+      </div>
+    </div>
+  </div>
   <!-- Form ends -->
 
   <!-- Generated tickets starts -->
-
+  <DIV id="ticket-page">
+    <div class="logo"><img src="logo-full.svg" alt="logo"></div>
+    <div class="heading">
+      <h1>  Congrats, <span id="fullname">Jonatan Kristof</span>! Your ticket is ready.</h1>
+      <p>  we've emailed your ticket to <span id="email">jonatan@email.com</span> and will send updates in the run up to the event.</p>
+    </div>
+    <div class="ticket">
+      <img src="pattern-ticket.svg" alt="" class="ticket--background">
+          <div class="ticket-container">
+            <div class="ticket-content">
+              <div class="block">
+                <img src="logo-mark.svg" alt="">
+                <div class="heading">
+                  <h1>  Coding Conf</h1>
+                  <p>  Secure your spot at next year'</p>
+                </div>
+              </div>
+    
+              <div class="block userblock">
+                <img src="image-avatar.jpg" alt="">
+                <div class="heading">
+                  <h1>  Coding Conf</h1>
+                  <div class="githubusername">
+                    <img src="icon-github.svg" alt="">
+                    <p id="username">Secure your spot at next year'</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-number">#010609</div>
+          </div>
+          </div>
+  </DIV>
   <!-- Generated tickets ends -->
   
 <script src="js.js"></script>
