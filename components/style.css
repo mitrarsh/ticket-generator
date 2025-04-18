@@ -88,7 +88,9 @@ h1{font-size: 3rem;}
     width: 95%;
     color: aliceblue;
 }
-#fileinput{display: none;}
+#fileinput {
+    display: none;
+  }
 .fileinputbox{
     background-color: #1a1a3d;
     border-radius: 12px;
@@ -109,7 +111,7 @@ h1{font-size: 3rem;}
     justify-self: center;
 }
 .label{text-align: start; color: hsl(252, 6%, 83%)}
-.inputEl{justify-self: center; width: 95%; margin-bottom: 2rem;}
+.inputEl{justify-self: center; width: 95%; margin-bottom: 2rem; position: relative;}
 
 .uploadnote{display: flex; flex-direction: row;}
 .uploadnote img{display: inline; width: 0.75rem;margin-right: 0.5rem;}
@@ -132,12 +134,15 @@ h1{font-size: 3rem;}
         justify-self: center;
         margin-top: 3rem;
         margin-bottom: 10rem;
+        cursor: pointer
         }
     button{
         background-color: hsl(7, 88%, 67%);
         color:#1a1a3d;
         font-weight: 600;
         padding: 0.5rem;
+        cursor: pointer
+        ;
         border: 0;    }
 
     @media screen and (min-width: 600px) {
@@ -243,13 +248,18 @@ h1{font-size: 3rem;}
             background-clip: text; 
             text-fill-color: transparent;
           }
-
           #ticket-page {
             display: none;
           }
 
-          input.error{border: red solid 2px;}
-
+          /* //.error */
+           .incorrect{
+            border: 2px solid red ;
+          }
+          .error{ position: absolute; display: none;}
+          
           .error-content{display: flex; flex-direction: row;}
         .error img{display: inline; width: 0.75rem;margin-right: 0.5rem;}
         .error p{font-size: 0.65rem; color:red}
+        
+        .form-error{left: 40%;}

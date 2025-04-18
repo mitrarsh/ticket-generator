@@ -1,54 +1,67 @@
-var formpageEl= document.getElementById("form-page");
-var ticketpageEl= document.getElementById("ticket-page");
-var errorEls = document.querySelectorAll(".error");
-var inputEls = document.querySelectorAll("input");
-var fileerrorEl = document.getElementsByClassName("file-error")[0];
-var emailerrorEl = document.getElementsByClassName("email-error")[0];
-var formerrorEl = document.getElementsByClassName("form-error")[0];
-var buttonEl=document.getElementsByClassName("button")[0];
-var fileinputEl = document.getElementById("fileinput");
+const form = document.querySelector("#form-page");
+const ticket = document.querySelector("#ticket-page");
+const name = document.querySelector("#name");
+const email = document.querySelector("#email-address");
+const username = document.querySelector("#username-address");
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  checkInputs();
+});
 
-var nameInput= inputEls[1];
-var emailInput = inputEls[2];
-var githubInput = inputEls[3];
+function isEmail(email) {
+  var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
+}
 
-var generate= function(){
+function checkInputs() {
+  const nameValue = name.value.trim();
+  const emailValue = email.value.trim();
+  const usernameValue = username.value.trim();
 
-  errorEls.forEach(function(el) {
-    el.style.display = "none";
-    
-      });
-    
-  inputEls.forEach(input => input.classList.remove("error"));
+  let hasError = false;
 
-  var name= nameInput.value.trim();
-  var email= emailInput.value.trim();
-  var github= githubInput.value.trim();
-  var file= fileinputEl.files[0];
-  var maxSize=500*1024;
-  var hasError = false;
+  // Reset errors
+  const formError = document.querySelector("#formError").parentElement;
+  formError.style.display = "none";
+  document.querySelector(".email-error").style.display = "none";
 
-  if (!name || !email || !github || !file) {formerrorEl.style.display="block"; hasError = true;}
+  [name, email, username].forEach(input => input.classList.remove("incorrect"));
 
-  function isValidEmail(email) {
-      // Simple regex for email format
-      var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return pattern.test(email);
-    }
-
-    if(email && !isValidEmail(email)){hasError=true; emailerrorEl.style.display="block"};
-
-    if (hasError) return;
-
-    document.getElementById("fullname").textContent = name;
-    document.getElementById("email").textContent = email;
-    document.getElementById("username").textContent = github;
-
-
-    formpageEl.style.display = "none";
-    ticketpageEl.style.display = "block";
-
+  if (nameValue === "" || emailValue === "" || usernameValue === "") {
+    formError.style.display = "block";
+    [name, email, username].forEach(input => {
+      if (input.value.trim() === "") input.classList.add("incorrect");
+    });
+    hasError = true;
   }
 
-    buttonEl.addEventListener("click",generate);
+  if (emailValue !== "" && !isEmail(emailValue)) {
+    document.querySelector(".email-error").style.display = "block";
+    email.classList.add("incorrect");
+    hasError = true;
+  }
+
+  if (!hasError) {
+    generateTicket(nameValue, emailValue, usernameValue);
+  }
+}
+
+function generateTicket(name, email, username) {
+  const ticketName = document.querySelectorAll(".ticket--fullname");
+  const ticketEmail = document.querySelectorAll(".ticket--email");
+  const ticketUsername = document.querySelectorAll(".ticket--username");
+
+  ticketName.forEach(element => {
+    element.textContent = name;
+  });
+  ticketEmail.forEach(element => {
+    element.textContent = email;
+  });
+  ticketUsername.forEach(element => {
+    element.textContent = username;
+  });
+
+  form.style.display = "none";
+  ticket.style.display = "block";
+}

@@ -25,19 +25,19 @@
 <img class="linebuttompc" src="pattern-squiggly-line-bottom-desktop.svg" alt="">
 
   <!-- Form starts -->
-  <div id="form-page">
+  <form id="form-page">
     <div class="logo"><img src="logo-full.svg" alt="logo"></div>
     <div class="heading">
       <h1>  Your Journey to Coding Conf 2025 Starts Here!</h1>
       <p>  Secure your spot at next year's biggest coding conference.</p>
     </div>
-    <div class="inputEl">
+    <!-- <div class="inputEl">
       <p class="label">Upload Avatar</p>
       <div class="fileinputbox">
         <div id="inputicon">
           <img src="icon-upload.svg" alt="">
         </div>
-        <input type="file" id="fileinput">
+        <input type="file" id="fileinput" accept="image/*">
         <p>Drag and drop or click to upload</p>
       </div>
       <div class="uploadnote">
@@ -48,17 +48,17 @@
           <img src="icon-info.svg" alt="">
           <p>File too large. please upload a photo under 500KB</p></div>
       </div>
-    </div>
-    <div class="inputEl">
+    </div> -->
+    <div class="inputEl ">
       <p class="label">Full Name</p>
       <div class="inputbox">
-        <input type="text" class="input">
+        <input type="text" id="name" class="input">
       </div>
     </div>
     <div class="inputEl">
       <p class="label">Email Address</p>
-      <div class="inputbox">
-        <input type="email" class="input" placeholder="example@email.com">
+      <div class="inputbox ">
+        <input type="email" id="email-address" class="input" placeholder="example@email.com">
       </div>
       <div class="error email-error">
         <div class="error-content">
@@ -66,15 +66,17 @@
           <p>Please enter a valid email address.</p></div>
       </div>
     </div>
-    <div class="inputEl">
+    <div class="inputEl ">
       <p class="label">Github Username</p>
       <div class="inputbox">
-        <input type="text" class="input" placeholder="yourusername">
+        <input type="text" class="input" id="username-address" placeholder="yourusername">
       </div>
+    </div>
+
     </div>
     
     <div class="button">
-      <button>Genarate My Ticket</button>
+      <button type="submit"> Genarate My Ticket</button>
     </div>
      
     <div class="form-error error">
@@ -82,15 +84,15 @@
         <p>Please complete all fields before generating your ticket.</p>
       </div>
     </div>
-  </div>
+  </form>
   <!-- Form ends -->
 
   <!-- Generated tickets starts -->
   <DIV id="ticket-page">
     <div class="logo"><img src="logo-full.svg" alt="logo"></div>
     <div class="heading">
-      <h1>  Congrats, <span id="fullname">Jonatan Kristof</span>! Your ticket is ready.</h1>
-      <p>  we've emailed your ticket to <span id="email">jonatan@email.com</span> and will send updates in the run up to the event.</p>
+      <h1>  Congrats, <span id="fullname" class="ticket--fullname"></span>! Your ticket is ready.</h1>
+      <p>  we've emailed your ticket to <span id="email" class="ticket--email"></span> and will send updates in the run up to the event.</p>
     </div>
     <div class="ticket">
       <img src="pattern-ticket.svg" alt="" class="ticket--background">
@@ -105,12 +107,12 @@
               </div>
     
               <div class="block userblock">
-                <img src="image-avatar.jpg" alt="">
+                <img src="" alt="" id="ticket--avatar">
                 <div class="heading">
-                  <h1>  Coding Conf</h1>
+                  <h1 class="ticket--fullname"></h1>
                   <div class="githubusername">
                     <img src="icon-github.svg" alt="">
-                    <p id="username">Secure your spot at next year'</p></div>
+                    <p id="username" class="ticket--username"></p></div>
                 </div>
               </div>
             </div>
